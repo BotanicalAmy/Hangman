@@ -8,13 +8,19 @@ import random
 from hangman_words import word_list_full
 from hangman_words_boy import word_list_boy
 
-list_selection = input("Do you want the full list or the boys' defined list?  Type 'boy' or 'full':")
+list_selection = input("Do you want a random word, or do you want to write your own? \nType \"random\" or \"custom\": ")
 if list_selection == "boy":
     word_list = word_list_boy
-else: word_list = word_list_full
-
-chosen_word = random.choice(word_list)
-word_length = len(chosen_word)
+    chosen_word = random.choice(word_list)
+    word_length = len(chosen_word)
+if list_selection == "custom":
+    chosen_word = input("Type a word for the other player to guess: ")
+    word_length = len(chosen_word)
+    clear()
+else: 
+    word_list = word_list_full
+    chosen_word = random.choice(word_list)
+    word_length = len(chosen_word)
 
 #print empty blanks for word guess
 #count number of letters in the random word
