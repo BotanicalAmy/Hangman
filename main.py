@@ -34,7 +34,6 @@ print(f"{' '.join(display_list)}")
 blanks == "_"
 hangman_lives = 6
 guess_list = []
-playing = True
 
 #Get ASCI art
 from hangman_art import hangman, hangman_5, hangman_4, hangman_3, hangman_2, hangman_1, hangman_0
