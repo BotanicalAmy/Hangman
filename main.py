@@ -13,7 +13,7 @@ if list_selection == "boy":
     word_list = word_list_boy
     chosen_word = random.choice(word_list)
     word_length = len(chosen_word)
-if list_selection == "custom":
+elif list_selection == "custom":
     chosen_word = input("Type a word for the other player to guess: ")
     word_length = len(chosen_word)
     clear()
@@ -34,9 +34,11 @@ print(f"{' '.join(display_list)}")
 blanks == "_"
 hangman_lives = 6
 guess_list = []
+playing = True
 
 #Get ASCI art
 from hangman_art import hangman, hangman_5, hangman_4, hangman_3, hangman_2, hangman_1, hangman_0
+
 
 #Check guess and keep score
 while blanks in display_list and hangman_lives > 0:
@@ -56,8 +58,6 @@ while blanks in display_list and hangman_lives > 0:
         print(hangman_2)
     if hangman_lives == 1:
         print(hangman_1)
-    if guess not in chosen_word and guess in guess_list:
-        print(f"You have already guessed \"{guess}\" ")
     for position in range(word_length):
         char = chosen_word[position]
         if char == guess:
@@ -67,11 +67,13 @@ while blanks in display_list and hangman_lives > 0:
         hangman_lives -= 1
         print(f"{' '.join(display_list)}\n")
         guess_list.append(guess)
-
+        print(f"You have incorrectly guessed these letters: {guess_list}")
+    
 #If there are no lives left
 if hangman_lives == 0:
     print("You Lose") 
     print(hangman_0)
+    print(f"The word was {chosen_word}")
 #When the word is guessed and you did not run out of lives
 else:
     print("You Win!")

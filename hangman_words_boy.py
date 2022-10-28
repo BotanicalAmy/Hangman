@@ -6,7 +6,6 @@ word_list_boy = [
 "wildflower", 
 "stroopwaffel", 
 "mountain", 
-"tulip", 
 "pumpkin", 
 "tomato", 
 "sunflower", 
